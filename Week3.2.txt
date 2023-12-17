@@ -1,0 +1,116 @@
+17-12-2023
+100XDevs - WEEK 3.2
+Fetch ?
+Authrnctications?
+DataBases?
+
+Fetch API:
+<body>
+  <script>
+    function getAnimalData(){
+      const  response = fetch("https://fakerapi.it/api/v1/persons" )
+      .then(function(response){
+        response.json()
+        .then(function(finalData){
+          console.log(finalData);
+        })       
+      })
+    } 
+  </script>
+  <button onclick="getAnimalData()">Get animal data</button>
+</body>
+
+
+Async await syntax:
+async function getAnimalData(){
+      const response = await fetch("https://fakerapi.it/api/v1/persons");
+      const finalData = await response.json();
+      console.log(finalData);
+    }
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+AUTHENTICATION:
+
+We will create a website where users can sign in that restrict the accessto the list of users 
+
+Hashing
+Encryption
+JSON web tokens
+Local Storage
+
+
+Hashing :
+userrname
+password           -----> backend   [Database]
+
+A single input always give the same output in hashing(::converting the simple string or plain text into hash code)  (::To protect from breaches)
+hashing is one way ( plantext -> hashcode , but not viceversa)
+In data base we always store username, hashed password
+Give  the output , no one can find the input
+even little bit chage in input , output totally varies
+
+
+Encryption:
+Encryption is two way (we can get back the plain text or original item )
+who ever have the key can get back the original one
+keys are store in - github secrets or based on deployment like aws 
+
+JSON web tokens:
+JSON - it is also like a hashing function but 
+work only for json  input format 
+it works only with web 
+creates a token at the end (string)
+Converting the complex object into long string
+jwebsite -   wt.io -> paste the webtoken string to decode 
+
+jwtdecode(token)   //to decode 
+
+jwtverify(token, password)  //only verified by the respective db owner  who have the password  - if verifies return the data , else return false 
+
+
+LocalStorage:
+Where is the tocken stored? Application local storage   (inspect -> application -> storage-> localstorage) 
+localstorage.set("token", jwt);
+When logged out , token will be removed from the storage 
+
+
+------------------------------------------------------------------------------------------------0----------------
+-
+
+
+
+DataBases:
+
+untill now we are storing data in inmemory object 
+if anything is updated in inmemory object and if the program crashes , the changs would be lost 
+so here comes the databases into picture 
+
+Browser  --> backend --> database
+Various databses : 
+Graphdb 
+vectordb
+sqldb  - full stack 
+Nosql Db  - open source 
+
+---------------------------------------------------------------
+MongoDb :
+
+lets create database,-> create tables ,-> create collecrions, -> dump json data
+MongoDb is schemaless database  (::sql databases follows strictly schema::)
+
+Mongooes lets connect with our database
+
+CRUD - Create, Read, Update, Read
+
+
+
+
+
+
+
+
+
+    
