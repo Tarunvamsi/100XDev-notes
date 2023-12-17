@@ -106,11 +106,10 @@ Mongooes lets connect with our database
 CRUD - Create, Read, Update, Read
 
 
+--------------------------------------------------------------
 
-
-
-
-
-
-
-    
+Why we use databse ? why we dont store data on notepad
+1. ypu dont have standard way to store data
+2. Hard to distribute
+3. DBs are optimized for reads and writes 
+4. dbs have logic for indexing to make queries faster
