@@ -1,0 +1,43 @@
+<hmtl>
+
+    <script>
+
+        let timeout;
+        function dedouncePopulateDiv(){
+            //delay the call to populateDiv untill i have not been called for 100ms
+            // and I have been called atleast once 
+            clearTimeout(timeout);    //to stop the set time out
+            timeout = setTimeout(function(){
+                populateDiv()
+            }, 1000);
+             
+        }   
+         
+
+        function populateDiv(){
+            //hellowowrld
+            //Global Document Variable 
+            //DOM - elemnts that are getting rendered 
+            const a= document.getElementById("firstnumber").value;
+            const b= document.getElementById("secondnumber").value;
+            // const element = document.getElementById("finalsum")
+            //fetch - to connect to backend
+            fetch("https://sum-server.100xdevs.com/sum?=a" + a + "&b= "+ b)
+                .then(function(response){
+                    response.text()
+                        .then(function(ans){
+                            document.getElementById("finalsum").innerHTML = ans;
+                        })
+                });
+            // element.innerHTML= parseInt(a)+parseInt(b);
+
+        }
+
+    </script>
+    <body>
+        <input id="firstnumber" type="text" placeholder="first number"></input> <br><br>
+        <input id="secondnumber" type="text" placeholder="second number"></input> <br><br>
+        <!-- <button onclick="populateDiv()"> calculatesum</button>   <br><br> -->
+        <div id="finalsum"></div>
+    </body>
+</hmtl>
